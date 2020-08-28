@@ -2,6 +2,8 @@
 
 This repository contains a collection of scripts for building the `ip6tables_nat` kernel module for a QNAP NAS.
 
+![Build ip6tables_nat kernel module for QNAP](https://github.com/mammo0/qnap-ip6tables_nat-module/workflows/Build%20ip6tables_nat%20kernel%20module%20for%20QNAP/badge.svg)
+
 
 
 ### Motivation
