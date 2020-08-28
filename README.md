@@ -22,6 +22,14 @@ So I built it myself :)
 ### Download the precompiled images
 There's a GitHub workflow that builds kernel images of this repository. You can download them directly from the [releases page](https://github.com/mammo0/qnap-ip6tables_nat-module/releases).
 
+Currently the modules are only compiled for the `x86_64` architecture!
+
+The modules are based on the GPL QTS version
+
+    4.4.1
+
+But they also work up to QTS version `4.4.3`.
+
 
 
 ### Building
