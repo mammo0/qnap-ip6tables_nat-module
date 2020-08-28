@@ -1,0 +1,9 @@
+# the .env file is created dynamically
+/.env
+
+# the needed source code
+/src/gpl_qts
+/src/linux
+
+# everything in the out directory
+/out/*

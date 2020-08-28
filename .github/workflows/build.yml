@@ -1,0 +1,72 @@
+name: Build ip6tables_nat kernel module for QNAP
+on:
+    push:
+        tags:
+            - v*
+
+env:
+    DOCKER_IMAGE_FILE: ${{ github.workspace }}/docker_image
+    DOCKER_IMAGE_TAG: ip6tables_nat-qnap:latest
+    RELEASE_ASSET_ZIP_FILE: modules.zip
+
+jobs:
+    build_docker_image:
+        name: Docker image builder
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+            - name: Build Docker image
+              run: docker build -t $DOCKER_IMAGE_TAG --build-arg PUID=`id -u` --build-arg PGID=`id -g` .
+            - name: Save Docker image
+              run: docker save -o $DOCKER_IMAGE_FILE $DOCKER_IMAGE_TAG
+            - name: Upload Docker image as artifact
+              uses: actions/upload-artifact@v2
+              with:
+                  name: docker_image
+                  path: ${{ env.DOCKER_IMAGE_FILE }}
+
+    build_module:
+        name: Kernel module builder
+        needs: build_docker_image
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+            - name: Prepare
+              run: ./0_prepare.sh
+            - name: Load environment
+              uses: c-py/action-dotenv-to-setenv@v1
+
+            - name: Get Docker image artifact
+              uses: actions/download-artifact@v2
+              with:
+                  name: docker_image
+                  path: ${{ github.workspace }}
+            - name: Load Docker image
+              run: docker load -i $DOCKER_IMAGE_FILE
+
+            - name: Build
+              run: docker run -v "$OUT_DIR":/out $DOCKER_IMAGE_TAG
+            - name: Collect results
+              run: zip -j "$RELEASE_ASSET_ZIP_FILE" "$OUT_DIR"/*
+
+            - name: Create GH Release
+              id: create_release
+              uses: actions/create-release@v1
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              with:
+                  tag_name: ${{ github.ref }}
+                  release_name: QNAP ip6tables_nat modules ${{ github.ref }}
+                  draft: false
+                  prerelease: false
+            - name: Upload kernel modules
+              uses: actions/upload-release-asset@v1
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              with:
+                  upload_url: ${{ steps.create_release.outputs.upload_url }}
+                  asset_path: ${{ env.RELEASE_ASSET_ZIP_FILE }}
+                  asset_name: ${{ env.RELEASE_ASSET_ZIP_FILE }}
+                  asset_content_type: application/zip
