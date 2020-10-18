@@ -26,9 +26,9 @@ Currently the modules are only compiled for the `x86_64` architecture!
 
 The modules are based on the GPL QTS version
 
-    4.4.1
+    4.4.3
 
-But they also work up to QTS version `4.4.3`.
+~But they also work up to QTS version `4.4.3`.~
 
 
 
