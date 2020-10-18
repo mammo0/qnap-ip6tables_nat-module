@@ -44,12 +44,12 @@ I reccomend to use Docker to build these modules rather than to setup the build 
 ##### 1) Build the Docker image
 To build the Docker image run:
 ```shell
-docker build -t ip6tables_nat-qnap .
+docker build -t ip6tables_nat-qnap --build-arg PUID=`id -u` --build-arg PGID=`id -g` .
 ```
 For customizations you can specify the following build arguments:
-- `BUILD_USER`: The name for the user that runs the build process.
-- `PUID`: The user ID of that user.
-- `PGID`: The group ID that belongs to that user.
+- `BUILD_USER` [**builder**]: The name for the user that runs the build process.
+- `PUID` [**1000**]: The user ID of that user. *The above command uses the current user ID.*
+- `PGID` [**1000**]: The group ID that belongs to that user. *The above command uses the current group ID.*
 
 ##### 2) Run the Docker image to build the OpenWRT images
 To start the automated build process run:
