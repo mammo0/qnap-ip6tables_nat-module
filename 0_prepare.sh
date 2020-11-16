@@ -20,10 +20,10 @@ OUT_DIR="$BASE_DIR/out"
 QNAP_DEVICE="TS-X53D"
 QNAP_VER="4.4.3-20201013"
 QNAP_DIR="$SRC_DIR/GPL_QTS"
-QNAP_KERNEL_CONFIG_FILE="$QNAP_DIR/kernel_cfg/$QNAP_DEVICE/linux-4.14-x86_64.config"
 
-KERNEL_VER="4.14.24"
-KERNEL_DIR="$SRC_DIR/linux-$KERNEL_VER"'
+KERNEL_VER="4.14"
+KERNEL_DIR="$QNAP_DIR/src/linux-$KERNEL_VER"
+QNAP_KERNEL_CONFIG_FILE="$QNAP_DIR/kernel_cfg/$QNAP_DEVICE/linux-$KERNEL_VER-x86_64.config"'
 
 # evaluate the above string (e.g. resolve paths)
 while IFS='=' read -r key temp || [ -n "$key" ]; do
