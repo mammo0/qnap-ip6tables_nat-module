@@ -36,7 +36,7 @@ jobs:
             - name: Prepare
               run: ./0_prepare.sh
             - name: Load environment
-              uses: c-py/action-dotenv-to-setenv@v2
+              uses: c-py/action-dotenv-to-setenv@v3
 
             - name: Get Docker image artifact
               uses: actions/download-artifact@v2
