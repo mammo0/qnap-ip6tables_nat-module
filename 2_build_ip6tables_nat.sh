@@ -10,7 +10,7 @@ function build() {
     pushd "$KERNEL_DIR"
 
     # apply the kernel configuration
-    make oldconfig
+    make olddefconfig
 
     # prepare building
     make scripts
