@@ -24,9 +24,7 @@ There's a GitHub workflow that builds kernel images of this repository. You can 
 
 Currently the modules are only compiled for the `x86_64` architecture!
 
-The modules are based on the GPL QTS version
-
-    5.0.0
+The modules are based on the **GPL QTS version** [![Latest Release](https://badge.fury.io/gh/mammo0%2Fqnap-ip6tables_nat-module.svg)](https://badge.fury.io/gh/mammo0%2Fqnap-ip6tables_nat-module)
 
 
 
