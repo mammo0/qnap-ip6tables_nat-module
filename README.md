@@ -53,7 +53,7 @@ For customizations you can specify the following build arguments:
 - `PUID` [**1000**]: The user ID of that user. *The above command uses the current user ID.*
 - `PGID` [**1000**]: The group ID that belongs to that user. *The above command uses the current group ID.*
 
-##### 2) Run the Docker image to build the OpenWRT images
+##### 2) Run the Docker image to build the Kernel modules
 To start the automated build process run:
 ```shell
 docker run --rm -v `pwd`:/out ip6tables_nat-qnap
