@@ -66,18 +66,15 @@ By default if no arguments were specified, the resulting kernel modules should b
 1. Copy them to your QNAP NAS.
 2. Load them via `insmod`:
 ```shell
-# the ip6_tables module is must be loaded before
-# on my NAS it was already there so using modprobe was enough
+# some required modules are already built into QTS, so you can load them with 'modprobe'
 /sbin/modprobe ip6_tables
-# otherwise load it via:
-/sbin/insmod /<path_to_module>/ip6_tables.ko
-# then load the other modules
-/sbin/insmod /<path_to_module>/nf_nat_ipv6.ko
-/sbin/insmod /<path_to_module>/nf_nat_masquerade_ipv6.ko
-/sbin/insmod /<path_to_module>/nf_reject_ipv6.ko
-/sbin/insmod /<path_to_module>/ip6t_MASQUERADE.ko
+/sbin/modprobe nf_nat
+/sbin/modprobe xt_MASQUERADE
+
+# then load the new modules
 /sbin/insmod /<path_to_module>/ip6t_NPT.ko
 /sbin/insmod /<path_to_module>/ip6t_REJECT.ko
+/sbin/insmod /<path_to_module>/nf_reject_ipv6.ko
 /sbin/insmod /<path_to_module>/ip6table_nat.ko
 ```
 

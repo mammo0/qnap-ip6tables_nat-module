@@ -25,7 +25,10 @@ function build() {
 
 
 function collect_artifacts() {
-    cp "$IP6TABLES_MODULES_DIR/"*.ko "$OUT_DIR/"
+    cp "$IP6TABLES_MODULES_DIR/ip6t_NPT.ko" "$OUT_DIR/"
+    cp "$IP6TABLES_MODULES_DIR/ip6t_REJECT.ko" "$OUT_DIR/"
+    cp "$IP6TABLES_MODULES_DIR/nf_reject_ipv6.ko" "$OUT_DIR/"
+    cp "$IP6TABLES_MODULES_DIR/ip6table_nat.ko" "$OUT_DIR/"
 }
 
 
