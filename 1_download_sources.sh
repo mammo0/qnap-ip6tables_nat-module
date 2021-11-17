@@ -11,7 +11,7 @@ function build() {
 
     if [[ ! -d "$QNAP_DIR" ]]; then
         # get the QNAP source
-        curl -LJO "https://sourceforge.net/projects/qosgpl/files/QNAP%20NAS%20GPL%20Source/QTS%20${QNAP_VER:0:5}/GPL_QTS-${QNAP_VER}_Kernel.tar.gz/download"
+        curl -LJOk "https://sourceforge.net/projects/qosgpl/files/QNAP%20NAS%20GPL%20Source/QTS%20${QNAP_VER:0:5}/GPL_QTS-${QNAP_VER}_Kernel.tar.gz/download"
 
         tar -zxf "$QNAP_ARCHIVE"
         rm "$QNAP_ARCHIVE"
