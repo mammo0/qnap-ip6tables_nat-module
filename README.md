@@ -34,7 +34,7 @@ On my own QNAP NAS the toolchain for building the kernel is
 ```
 >$ cat /proc/version
 
-Linux version 4.14.24-qnap [...] (gcc version 4.9.2 (toolchain config: [gcc-4.9.2 binutils-2.25 glibc-2.21]))
+Linux version 5.10.60-qnap [...] (toolchain config: [gcc-4.9.2 binutils-2.25 glibc-2.21]) [...]
 ```
 
 Because these are quite old versions the simpliest solution to get this build context was to use Docker with an old Ubuntu `15.04` image.
