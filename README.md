@@ -71,8 +71,8 @@ By default if no arguments were specified, the resulting kernel modules should b
 
 # then load the new modules
 /sbin/insmod /<path_to_module>/ip6t_NPT.ko
-/sbin/insmod /<path_to_module>/ip6t_REJECT.ko
 /sbin/insmod /<path_to_module>/nf_reject_ipv6.ko
+/sbin/insmod /<path_to_module>/ip6t_REJECT.ko
 /sbin/insmod /<path_to_module>/ip6table_nat.ko
 ```
 
