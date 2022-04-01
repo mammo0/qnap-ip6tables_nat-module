@@ -15,7 +15,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout
-              uses: actions/checkout@v2
+              uses: actions/checkout@v3
             - name: Build Docker image
               run: docker build -t $DOCKER_IMAGE_TAG --build-arg PUID=`id -u` --build-arg PGID=`id -g` .
             - name: Save Docker image
@@ -32,7 +32,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout
-              uses: actions/checkout@v2
+              uses: actions/checkout@v3
             - name: Prepare
               run: ./0_prepare.sh
             - name: Load environment
