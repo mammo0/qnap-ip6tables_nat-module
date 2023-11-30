@@ -54,7 +54,7 @@ For customizations you can specify the following build arguments:
 ##### 2) Run the Docker image to build the Kernel modules
 To start the automated build process run:
 ```shell
-docker run --rm -v `pwd`:/out ip6tables_nat-qnap
+docker run --rm -v `pwd`/out:/out ip6tables_nat-qnap
 ```
 By default if no arguments were specified, the resulting kernel modules should be available in your current working directory. Otherwise check the `-v` argument. On container side the path should be equal to the `VOLUME_DIR` path that is defined in the Dockerfile.
 
