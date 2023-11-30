@@ -1,8 +1,8 @@
 FROM ubuntu:15.04
 
 ARG BUILD_USER=builder
-ARG PUID=1000
-ARG PGID=1000
+ARG PUID=0
+ARG PGID=0
 ENV BUILD_DIR=/build
 ENV VOLUME_DIR=/out
 
@@ -20,7 +20,7 @@ RUN apt-get update && \
 
 # add build user
 RUN [ $(getent group $PGID) ] || groupadd -f -g $PGID $BUILD_USER && \
-    useradd -ms /bin/bash -u $PUID -g $PGID $BUILD_USER
+    [ $(getent passwd $PUID) ] || useradd -ms /bin/bash -u $PUID -g $PGID $BUILD_USER
 
 # setup build context
 RUN mkdir "$BUILD_DIR" && \
@@ -31,7 +31,7 @@ RUN chown -R $PUID:$PGID "$BUILD_DIR"
 WORKDIR "$BUILD_DIR"
 
 
-USER $BUILD_USER
+USER $PUID:$PGID
 VOLUME "$VOLUME_DIR"
 COPY docker_entrypoint.sh /usr/bin/
 ENTRYPOINT ["docker_entrypoint.sh"]
