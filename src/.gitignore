@@ -1,2 +1,5 @@
-# the needed source code
-/GPL_QTS
+# everything in this folder
+*
+
+# exclude self
+!.gitignore
