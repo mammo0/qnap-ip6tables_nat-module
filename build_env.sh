@@ -76,7 +76,7 @@ function apply_patches() {
             # ignore a or b path prefix in the patch file
             out=$(patch -N -d "$2" -p1 < "$patch_file") || echo "${out}" | grep "Skipping patch" -q || (echo "$out" && false)
         else
-            out=$(patch -N -d "$2" < "$patch_file") || echo "${out}" | grep "Skipping patch" -q || (echo "$out" && false)
+            out=$(patch -N -d "$2" -p0 < "$patch_file") || echo "${out}" | grep "Skipping patch" -q || (echo "$out" && false)
         fi
     done
 }
