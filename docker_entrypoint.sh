@@ -16,7 +16,7 @@ cd "$BUILD_DIR"
 
 # do all two steps
 ./1_download_sources.sh
-./2_build_ip6tables_nat.sh
+./2_build_rtl8761b.sh
 
 # copy the resulting modules to the output volume
 cp "$OUT_DIR/"*.ko "$VOLUME_DIR/"
