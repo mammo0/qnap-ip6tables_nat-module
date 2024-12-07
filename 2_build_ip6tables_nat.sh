@@ -9,15 +9,21 @@ IP6TABLES_MODULES_DIR="$KERNEL_DIR/net/ipv6/netfilter"
 function build() {
     pushd "$KERNEL_DIR"
 
-    # apply the kernel configuration
+    # apply the default QNAP kernel configuration
     make olddefconfig
+
+    # change the kernel configuration
+    # enable the IPv6 netfilter modules
+    ./scripts/config --module CONFIG_IP6_NF_NAT
+    ./scripts/config --module CONFIG_IP6_NF_TARGET_MASQUERADE
+    ./scripts/config --module CONFIG_IP6_NF_TARGET_NPT
 
     # prepare building
     make scripts
     make prepare
     make modules_prepare
 
-    # build only the ip6tables_nat module
+    # build only the IPv6 netfilter modules
     make -C . M=net/ipv6/netfilter
 
     popd

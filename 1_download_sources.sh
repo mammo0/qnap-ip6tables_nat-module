@@ -52,9 +52,6 @@ function build() {
     # copy the kernel config to the kernel directory
     cp "$QNAP_KERNEL_CONFIG_FILE" "$KERNEL_DIR/.config"
 
-    # apply patches
-    apply_patches "$PATCH_DIR/linux" "$KERNEL_DIR"
-
     popd
 }
 
