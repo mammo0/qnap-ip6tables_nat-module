@@ -2,7 +2,7 @@
 /.env
 
 # the needed source code
-/src/gpl_qts
+/src/GPL_QTS
 /src/linux
 
 # everything in the out directory
