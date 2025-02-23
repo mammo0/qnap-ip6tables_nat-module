@@ -56,7 +56,7 @@ To start the automated build process run:
 ```shell
 docker run --rm -v `pwd`/out:/out ip6tables_nat-qnap
 ```
-By default if no arguments were specified, the resulting kernel modules should be available in your current working directory. Otherwise check the `-v` argument. On container side the path should be equal to the `VOLUME_DIR` path that is defined in the Dockerfile.
+By default if no arguments were specified, the resulting kernel module should be available in your current working directory. Otherwise check the `-v` argument. On container side the path should be equal to the `VOLUME_DIR` path that is defined in the Dockerfile.
 
 
 
@@ -69,14 +69,9 @@ By default if no arguments were specified, the resulting kernel modules should b
 /sbin/modprobe nf_nat
 /sbin/modprobe xt_MASQUERADE
 
-# then load the new modules
-/sbin/insmod /<path_to_module>/ip6t_NPT.ko
-/sbin/insmod /<path_to_module>/nf_reject_ipv6.ko
-/sbin/insmod /<path_to_module>/ip6t_REJECT.ko
+# then load the new module
 /sbin/insmod /<path_to_module>/ip6table_nat.ko
 ```
-
-The other modules that were also built can be ommited.
 
 You can add the above commands to the `autorun.sh` file to load those modules at boot time. The process for creating the `autorun.sh` file is described in the official QNAP Wiki:
 https://wiki.qnap.com/wiki/Running_Your_Own_Application_at_Startup

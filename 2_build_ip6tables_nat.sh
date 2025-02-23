@@ -15,8 +15,6 @@ function build() {
     # change the kernel configuration
     # enable the IPv6 netfilter modules
     ./scripts/config --module CONFIG_IP6_NF_NAT
-    ./scripts/config --module CONFIG_IP6_NF_TARGET_MASQUERADE
-    ./scripts/config --module CONFIG_IP6_NF_TARGET_NPT
 
     # prepare building
     make scripts
@@ -31,9 +29,6 @@ function build() {
 
 
 function collect_artifacts() {
-    cp "$IP6TABLES_MODULES_DIR/ip6t_NPT.ko" "$OUT_DIR/"
-    cp "$IP6TABLES_MODULES_DIR/ip6t_REJECT.ko" "$OUT_DIR/"
-    cp "$IP6TABLES_MODULES_DIR/nf_reject_ipv6.ko" "$OUT_DIR/"
     cp "$IP6TABLES_MODULES_DIR/ip6table_nat.ko" "$OUT_DIR/"
 }
 
