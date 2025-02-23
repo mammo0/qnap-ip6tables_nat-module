@@ -31,7 +31,7 @@ function build() {
             while true
             do
                 # set the name for the split tar file
-                split_tar_url="https://sourceforge.net/projects/qosgpl/files/QNAP%20NAS%20GPL%20Source/QTS%20${QNAP_VER:0:5}/QTS_Kernel_${QNAP_VER}.tar.gz.${file_counter}"
+                split_tar_url="https://sourceforge.net/projects/qosgpl/files/QNAP%20NAS%20GPL%20Source/QTS%20${QNAP_VER:0:5}/QTS_Kernel_${QNAP_VER}.${file_counter}.tar.gz"
 
                 # stop here if the file does not exits
                 if ! _url_exists "$split_tar_url"; then
