@@ -57,7 +57,7 @@ jobs:
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               with:
-                  name: QNAP ip6tables_nat modules ${{ github.ref }}
+                  name: QNAP ip6tables_nat modules ${{ github.ref_name }}
                   draft: false
                   prerelease: false
                   files: ${{ env.RELEASE_ASSET_ZIP_FILE }}
