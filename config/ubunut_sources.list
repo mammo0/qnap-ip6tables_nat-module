@@ -1,4 +1,0 @@
-deb http://old-releases.ubuntu.com/ubuntu/ vivid main restricted
-deb-src http://old-releases.ubuntu.com/ubuntu/ vivid main restricted
-deb http://old-releases.ubuntu.com/ubuntu/ vivid-updates main restricted
-deb-src http://old-releases.ubuntu.com/ubuntu/ vivid-updates main restricted

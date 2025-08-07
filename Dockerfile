@@ -1,21 +1,10 @@
-FROM ubuntu:15.04
+FROM mammo0/qnap-qts-toolchain:vivid
 
 ARG BUILD_USER=builder
 ARG PUID=0
 ARG PGID=0
 ENV BUILD_DIR=/build
 ENV VOLUME_DIR=/out
-
-
-ADD config/ubunut_sources.list /etc/apt/sources.list
-
-# install dependencies
-RUN apt-get update && \
-    apt-get -y install \
-        build-essential \
-        curl \
-        bc \
-        libelf-dev
 
 
 # add build user
