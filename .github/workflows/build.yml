@@ -39,7 +39,7 @@ jobs:
               uses: c-py/action-dotenv-to-setenv@v5
 
             - name: Get Docker image artifact
-              uses: actions/download-artifact@v5
+              uses: actions/download-artifact@v6
               with:
                   name: docker_image
                   path: ${{ github.workspace }}
