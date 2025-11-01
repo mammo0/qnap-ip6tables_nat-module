@@ -21,7 +21,7 @@ jobs:
             - name: Save Docker image
               run: docker save -o $DOCKER_IMAGE_FILE $DOCKER_IMAGE_TAG
             - name: Upload Docker image as artifact
-              uses: actions/upload-artifact@v4
+              uses: actions/upload-artifact@v5
               with:
                   name: docker_image
                   path: ${{ env.DOCKER_IMAGE_FILE }}
